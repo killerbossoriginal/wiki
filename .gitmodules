@@ -1,0 +1,3 @@
+[submodule "quaderno"]
+	path = content
+	url = https://github.com/killerbossoriginal/quaderno
