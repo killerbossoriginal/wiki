@@ -25,16 +25,6 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
-      # Imposta la cache del submodule (opzionale, accelera workflow)
-      - name: Cache submodules
-        uses: actions/cache@v4
-        with:
-          path: |
-            content/.git
-          key: ${{ runner.os }}-submodule-${{ hashFiles('content/.gitmodules') }}
-          restore-keys: |
-            ${{ runner.os }}-submodule-
-
       # Aggiorna tutti i submodule al branch remoto configurato
       - name: Update submodules to latest commit
         run: git submodule update --remote --recursive
