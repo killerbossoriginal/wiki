@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       # Clona la repo principale e tutti i submodule
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           submodules: recursive
@@ -41,7 +41,7 @@ jobs:
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:v4 || echo "No changes to push"
 
       # Setup Node.js
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -55,7 +55,7 @@ jobs:
 
       # Upload del sito generato come artifact per GitHub Pages
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: public
 
